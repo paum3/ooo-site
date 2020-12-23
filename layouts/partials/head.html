@@ -1,0 +1,36 @@
+<head>
+  <meta charset="utf-8">
+  {{ $title := "Fero Király" }}
+  {{ if eq .Title $title }}
+     <title>{{ .Title }}</title>
+  {{ else }}
+  <title>{{ .Title }} + ooo</title>
+  {{ end }}
+
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+
+ {{ "<!--Favicon-->" | safeHTML }}
+  <link rel="icon" href="{{ `img/favicon.png` | absURL }}" type="image/x-icon">
+
+
+  <style>
+  :root{
+    --primary-color:{{ .Site.Params.primary_color }};
+    --body-color:{{ .Site.Params.body_color }};
+    --text-color:{{ .Site.Params.text_color }};
+    --text-color-dark:{{ .Site.Params.text_color_dark }};
+    --white-color:{{ .Site.Params.white_color }};
+    --light-color:{{ .Site.Params.light_color }};
+    --font-family:{{ replace .Site.Params.font_family ' ' '+' | title }};
+  }
+  </style>
+ <link href="https://fonts.googleapis.com/css?family=Inconsolata:400,700" rel="stylesheet">
+{{ "<!-- Main Stylesheet -->" | safeHTML }}
+{{ $css := resources.Get "css/style.css" | minify }}
+<link href="{{ $css.Permalink }}" rel="stylesheet" media="screen"/>
+
+{{ template "_internal/opengraph.html" . }}
+{{ template "_internal/twitter_cards.html" . }}
+
+</head>

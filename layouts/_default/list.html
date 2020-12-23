@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+{{ partial "head" . }}
+<body>
+
+   <div class="container">
+{{ partial "header/site-header" . }}
+      <br>
+
+      {{ range .Pages }}
+             <br>
+             <a href="{{.URL}}" >{{ .Title }}</a>
+
+             <br>
+             {{ .Params.anotacia }}
+             <hr>
+      {{ end }}
+
+      <br>
+
+{{ partial "footer/site-footer" . }}
+   </div>
+   </body>
+</html>

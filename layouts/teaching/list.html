@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+{{ partial "head" . }}
+<body>
+   <div class="container">
+
+{{ partial "header/site-header" . }}
+
+<main>
+    <article>
+    <div class="article-head">
+      <div class="next-prev">
+          <span>&nbsp;</span>
+      </div>
+
+      <div class="article-head-main">
+         <h1 class="page-title">{{ .Site.Params.teaching}}</h1>
+      </div>
+
+      <div class="next-prev">
+          <span>&nbsp;</span>
+      </div>
+    </div>
+
+    <div class="main-content">
+
+
+      {{ range .Pages }}
+      <h3><b>{{ .Title }}</b></h3>
+      {{ .Content }}
+             <hr>
+      {{ end }}
+
+    </div>
+    </article>
+</main>
+{{ partial "footer/site-footer" . }}
+   </div>
+   </body>
+</html>

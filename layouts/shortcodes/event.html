@@ -1,0 +1,11 @@
+<div class="calendar-item">
+   <span>{{ .Get 0 }}</span>
+   <strong>{{ .Get 1 }}</strong><br>
+   <div style="padding-left:53px">
+   <i>{{ .Get 2 }}</i>{{ .Get 3 }}
+   {{ $link := .Get 4 }}
+   {{ if  $link}}
+      <a href="{{ $link }}" target="_blank">link</a>
+   {{ end }}
+   </div>
+</div>

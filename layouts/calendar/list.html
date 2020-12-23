@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+{{ partial "head" . }}
+<body>
+   <div class="container">
+
+   {{ partial "header/site-header" . }}
+
+
+   <main>
+       <article>
+          <div class="article-head">
+            <div class="next-prev">
+                <span>&nbsp;</span>
+            </div>
+
+            <div class="article-head-main">
+               <h1 class="page-title">{{ .Site.Params.kalendar}}</h1>
+            </div>
+
+            <div class="next-prev">
+                <span>&nbsp;</span>
+            </div>
+          </div>
+
+            <div class="main-content">
+               {{ $ciara := false }}
+               {{ range $index, $ktoryrok:= (seq 2020 2019) }}
+
+                  <!-- <h1 id={{ $ktoryrok }}>{{ $ktoryrok }}</h1> -->
+
+                  {{ range $.Pages }}
+                     {{ $rok := .Date.Format "2006" }}
+                     {{ if eq (int $rok) $ktoryrok}}
+
+                        <div class="calendar-item">
+                           <span>{{ .Date.Format "02 Jan" }} {{ $ktoryrok }}</span>
+
+                           <strong>{{ .Title }}</strong><br>
+                           <div style="padding-left:53px">
+                              <i>{{ .Params.typ}}</i>
+
+                              {{ $enslink := .Params.ensemble_link  }}
+                              {{ if isset .Params "ensemble" }}
+                                 {{ if  $enslink}}
+                                 <a href="{{ $enslink }}" tagret="_blank">{{ .Params.ensemble}}</a>,
+                                 {{  else}}
+                                 {{ .Params.ensemble }},
+                                 {{ end }}
+                              {{ end }}
+                              {{ if isset .Params "spolu_s" }} w/ {{ .Params.spolu_s }}  {{ end }} <br>
+
+                              {{ $festlink := .Params.festival_link  }}
+
+                              {{ if isset .Params "festival" }}
+                                 festival
+                                 {{ if  $festlink}}
+                                 <a href="{{ $festlink }}" tagret="_blank">{{ .Params.festival }}</a>,
+                                 {{  else}}
+                                 {{ .Params.festival }},
+                                 {{ end }}
+                              {{ end }}
+                              {{ $link := .Params.link  }}
+                              {{ if isset .Params "miesto" }} {{ .Params.miesto }}, {{ end }}{{ if isset .Params "mesto" }} {{ .Params.mesto }}, {{ end }}{{ if isset .Params "stat" }} {{ .Params.stat }}{{ end }}{{ $time :=  (.Date.Format "15:00") }}{{ if ne $time  "00:00"}}, {{ $time }}{{ end }}{{ if  $link}}, <a href="{{ $link }}" target="_blank">link</a>{{ end }}
+                              {{ .Content }}
+                           </div>
+                        </div>
+
+                     {{ end }}
+                  {{ end }}
+
+
+
+               {{ end }}
+
+            </div>
+
+       </article>
+   </main>
+   {{ partial "footer/site-footer" . }}
+   </div>
+   </body>
+</html>

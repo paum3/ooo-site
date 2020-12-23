@@ -1,0 +1,112 @@
+baseURL = "http://www.zdruzenie.ooo/"
+languageCode = "en-us"
+title = "združenie ooo"
+
+# googleAnalytics = "UA-176823656-1"
+
+  [[languages.en.menu.main]]
+    identifier = "about"
+    name = "About"
+    url = "/about/"
+    weight = -58
+
+  [[languages.en.menu.main]]
+    name = "Projects"
+    url = "/projects/"
+    weight = -100
+
+
+  [[languages.en.menu.main]]
+    name = "Calendar"
+    url = "/calendar/"
+    weight = -62
+
+
+ [[languages.sk.menu.main]]
+    identifier = "about"
+    name = "O nás"
+    url = "/about/"
+    weight = -58
+
+  [[languages.sk.menu.main]]
+    name = "Projekty"
+    url = "/projects/"
+    weight = -100
+
+  [[languages.sk.menu.main]]
+    name = "Kalendár"
+    url = "/calendar/"
+    weight = -62
+
+
+
+
+
+############################# Default Parameters ##########################
+[params]
+# description = "portfolio"
+# images = ["/img/fishcore.jpg"]
+# logo is for all page
+logo = ""
+# logo white is for homepage logo, you can use colorful logo too...
+logo_white = ""
+# when logo is empty, it will shown your site title
+
+# customize color
+primary_color = "#02007e"
+body_color = "#f9f9f9"
+text_color = "#636363"
+text_color_dark = "#242738"
+white_color = "#ffffff"
+light_color = "#aa00ff"
+
+
+
+
+
+
+################################ English Language ######################
+[languages.en]
+languageName = "En"
+languageCode = "en-us"
+weight = 1
+home = "Home"
+works = "Projects"
+kalendar= "Calendar"
+
+################################### SlovakLanguage ######################
+[languages.sk]
+languageName = "Sk"
+languageCode = "sk-sk"
+weight = 2
+home = "Domov"
+works= "Projekty"
+kalendar= "Kalendár"
+
+
+
+
+
+
+
+[privacy]
+  [privacy.disqus]
+    disable = false
+  [privacy.googleAnalytics]
+    anonymizeIP = false
+    disable = false
+    respectDoNotTrack = false
+    useSessionStorage = false
+  [privacy.instagram]
+    disable = false
+    simple = false
+  [privacy.twitter]
+    disable = false
+    enableDNT = false
+    simple = false
+  [privacy.vimeo]
+    disable = false
+    simple = false
+  [privacy.youtube]
+    disable = false
+    privacyEnhanced = false

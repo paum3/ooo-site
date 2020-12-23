@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+{{ partial "head.html" . }}
+
+<body>
+   <div class="container">
+   {{ partial "header/site-header" . }}
+
+   <main>
+      <article>
+         <div class="article-head">
+            <div class="next-prev">
+               {{ if .PrevInSection }}
+               <a href="{{with .PrevInSection}}{{.Permalink}}{{end}}">❬</a>
+               {{ end }}
+            </div>
+            <div class="article-head-main">
+               <h1 class="page-title">{{ .Title }}</h1>
+               <div class="meta">
+                  <time>{{ .Params.year }}</time>
+                  &middot;
+                  <span class="media">{{ .Params.description }}</span>
+               </div>
+              <!--  <div class="meta project-link">
+                  <a target="_blank" href="https://fulfillmentbins.lav.io/">https://fulfillmentbins.lav.io/</a>
+              </div> -->
+            </div>
+            <div class="next-prev">
+               {{ if .NextInSection }}
+               <a href="{{with .NextInSection}}{{.Permalink}}{{end}}">❭</a>
+               {{ end }}
+            </div>
+         </div>
+
+         <div class="main-content">
+         {{ .Content }}
+         </div>
+      </article>
+   </main>
+
+   {{ partial "footer/site-footer" . }}
+</body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+{{ partial "head" . }}
+<body>
+   <div class="container">
+
+   {{ partial "header/site-header" . }}
+      <main>
+         <h2 class="page-title selected-work"><span>{{ .Site.Params.works }}</span></h2>
+         <ul class="project-list">
+            {{ range .Pages }}
+               <li>
+                  <a href="{{.Permalink}}">
+                      <img src="{{ .Params.image}}">
+                      <div class="project-meta">
+                         <span class="title">{{ .Title }}</span>
+                         <date>({{ .Params.year }})</date><br>
+                         <span class="description">{{ .Params.description}}</span>
+                      </div>
+                  </a>
+               </li>
+            {{ end }}
+
+         <ul>
+      </main>
+   {{ partial "footer/site-footer" . }}
+   </div>
+   </body>
+</html>

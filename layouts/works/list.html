@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<!-- nepouzivam -->
+<html>
+{{ partial "head" . }}
+<body>
+   <div class="container">
+
+   {{ partial "header/site-header" . }}
+
+      <main>
+         <h2 class="page-title selected-work"><span>{{ i18n "works"}}</span></h2>
+         <ul class="project-list">
+
+            {{ range .Pages }}
+               {{ if isset .Params "selected_work" }}
+               <li>
+                  <a href="{{.URL}}">
+                      <img src="{{ .Params.image}}">
+                      <div class="project-meta">
+                         <span class="title">{{ .Title }}</span>
+                         <date>({{ .Params.year }})</date><br>
+                         <span class="description">{{ .Params.description}}</span>
+                      </div>
+                  </a>
+               </li>
+               {{ end }}
+            {{ end }}
+
+         <ul>
+      </main>
+   {{ partial "footer/site-footer" . }}
+   </div>
+   </body>
+</html>
